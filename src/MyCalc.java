@@ -187,6 +187,11 @@ public class MyCalc extends javax.swing.JFrame {
 
         equals.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         equals.setText("=");
+        equals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                equalsActionPerformed(evt);
+            }
+        });
 
         dot.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         dot.setText(".");
@@ -404,6 +409,45 @@ public class MyCalc extends javax.swing.JFrame {
         display.setText("");
         multiClick=1;
     }//GEN-LAST:event_multiActionPerformed
+
+    private void equalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equalsActionPerformed
+        second=Double.parseDouble(String.valueOf(display.getText()));
+        
+        //result for +
+        if(plusClick>0){
+            total=first+second;
+            display.setText(String.valueOf(total));
+            first=0;    //initiallize to 0
+            second=0;   //initiallize to 0
+            plusClick=0;
+        }
+        //result for -
+         if(minusClick>0){
+            total=first-second;
+            display.setText(String.valueOf(total));
+            first=0;    //initiallize to 0
+            second=0;   //initiallize to 0
+            minusClick=0;
+        }
+        //result for *
+            if(multiClick>0){
+            total=first*second;
+            display.setText(String.valueOf(total));
+            first=0;    //initiallize to 0
+            second=0;   //initiallize to 0
+            multiClick=0;
+        }
+        //result for /
+            
+            if(divClick>0){
+            total=first/second;
+            display.setText(String.valueOf(total));
+            first=0;    //initiallize to 0
+            second=0;   //initiallize to 0
+            divClick=0;
+        }
+        
+    }//GEN-LAST:event_equalsActionPerformed
 
     /**
      * @param args the command line arguments
