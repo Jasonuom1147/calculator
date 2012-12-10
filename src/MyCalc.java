@@ -21,7 +21,7 @@ public class MyCalc extends javax.swing.JFrame {
     
     //Click check
     int plusClick;
-    int minusClck;
+    int minusClick;
     int multiClick;
     int divClick;
     
@@ -147,6 +147,11 @@ public class MyCalc extends javax.swing.JFrame {
 
         plus.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         plus.setText("+");
+        plus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plusActionPerformed(evt);
+            }
+        });
 
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton12.setText("C");
@@ -158,12 +163,27 @@ public class MyCalc extends javax.swing.JFrame {
 
         minus.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         minus.setText("-");
+        minus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minusActionPerformed(evt);
+            }
+        });
 
         multi.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         multi.setText("*");
+        multi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                multiActionPerformed(evt);
+            }
+        });
 
         div.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         div.setText("/");
+        div.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                divActionPerformed(evt);
+            }
+        });
 
         equals.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         equals.setText("=");
@@ -357,6 +377,33 @@ public class MyCalc extends javax.swing.JFrame {
         plusmin=plusmin*(-1);
         display.setText(String.valueOf(plusmin));
     }//GEN-LAST:event_poneActionPerformed
+
+    private void plusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusActionPerformed
+        // TODO add your handling code here:
+        first=Double.parseDouble(String.valueOf(display.getText()));
+        display.setText("");
+        plusClick=1;
+    }//GEN-LAST:event_plusActionPerformed
+
+    private void minusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minusActionPerformed
+        // TODO add your handling code here:
+        first=Double.parseDouble(String.valueOf(display.getText()));
+        display.setText("");
+        minusClick=1;
+    }//GEN-LAST:event_minusActionPerformed
+
+    private void divActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divActionPerformed
+        first=Double.parseDouble(String.valueOf(display.getText()));
+        display.setText("");
+        divClick=1;
+    }//GEN-LAST:event_divActionPerformed
+
+    private void multiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiActionPerformed
+        // TODO add your handling code here:
+        first=Double.parseDouble(String.valueOf(display.getText()));
+        display.setText("");
+        multiClick=1;
+    }//GEN-LAST:event_multiActionPerformed
 
     /**
      * @param args the command line arguments
